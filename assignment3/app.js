@@ -2,8 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 
-const adminRoutes = require('./routes/admin');
-const shopRoutes = require('./routes/shop');
+const profileRoutes = require('./routes/profileRoutes');
+const diaryRoutes = require('./routes/diaryRoutes');
 
 const app = express();
 
@@ -12,8 +12,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // '/admin' preceeds all adminRoutes
-app.use('/admin', adminRoutes);
-app.use(shopRoutes);
+app.use(profileRoutes);
+app.use(diaryRoutes);
 
 // catchall route
 app.use((req, res, next) => {
