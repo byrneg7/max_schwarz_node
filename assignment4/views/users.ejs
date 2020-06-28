@@ -1,0 +1,22 @@
+<%- include('includes/head.ejs') %>
+<link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+  <%- include('includes/navigation.ejs') %>
+
+  <main>
+    <% if (users.length > 0) { %>
+    <h1>My Products</h1>
+    <p>List of all the products...</p>
+    <div class="grid">
+      <% for (let user of users) { %>
+      <h1 class="product__title"><%= user.user %></h1>
+      <% }%>
+    </div>
+    <% } else { %>
+    <h1>No Users</h1>
+    <% } %>
+  </main>
+
+  <%- include('includes/end.ejs') %>
